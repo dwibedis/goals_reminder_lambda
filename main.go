@@ -1,11 +1,10 @@
 package goals_reminder_lambda
 
 import (
-	"dwibedis/goal_reminder_lambda/internal/services"
-	"fmt"
+	"dwibedis/goal_reminder_lambda/internal/controllers"
+	"github.com/aws/aws-lambda-go/lambda"
 )
 
 func main() {
-	g := services.GoalsCalculator{}
-	fmt.Println(g.GetGoal())
+	lambda.Start(controllers.HandleURLShortenRequest)
 }
